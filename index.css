@@ -1,71 +1,172 @@
 html, body {
-    margin: 0 ;
-    padding: 0;
-            font-family: 'Mukta', sans-serif;
+   
+    font-family: 'Mukta', sans-serif;
+    background-color: rgb(63, 178, 255);
+
 }
+
+/* inputs */
 
 .input-container{
-   
+
     display: none;
-    flex-direction: column;
-    margin: 30px auto;
-    width: 75vw;
-    
-}
+    margin: 0 0 0 33.4vw;
+    min-width: 400px;
+} 
 
 #mainPostinput{
-    width: 68vw;
+    width: 31.2vw;
     border-radius: 20px;
     border: 1.7px solid #E3E3E3;
     padding-left: 25px;
+    min-width: 300px;
+    margin: 0 0 0 0;
+    
+}
+
+#hiddenboxsize{
+    border: 1.7px solid #E3E3E3;
+    border-radius: 5px;
+    margin: -30px auto;
+    width: 32vw;
+    height: 150px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    min-width: none;
+}
+
+textarea{
+    resize: none;
+    
+    border-radius: 10px;
+}
+
+#postButton{
+    width: 100px;
+    height: 40px;
+    padding: 3px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 40px 0 45px 26vw;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(63, 178, 255);
+    border: solid white;
+}
+
+/* main feed */
+
+#feed-content{
+    padding-top: 9px;
+    padding-right: 1.5vw;
+    padding-left: .1vw;
+    height: 140px;
+    overflow-y: hidden;
+    margin: 0 18px;
+    overflow: auto;
+    font-size: 15px;
+   
+}
+
+#headerimg{
+    margin: 0 0 -40px 33.4vw;
+    font-size: 20px;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 5px rgb(19, 186, 237);
+    width: 200px;
+ 
+    background-color: rgb(21, 177, 255);
+    
+}
+
+/* posts */
+
+#profilepic{
+    height: 37px;
+    width: 37px;
+    border-radius: 100px;
+    margin: 10px 0 9px 19px;
+    background-image: url("girl2.jpg");
+    background-size: contain;
+}
+
+#profilename{
+    margin: -40px 0 0 65px; 
+    font-size: 15px;
 }
 
 .postContainer{
     margin: 50px auto;
-    text-align: center  
-    
+    text-align: center ;  
+}
+
+h3{
+    width: 63vw;
+    margin-left: .85vw;  
 }
 
 .post-container{
-    
     display: flex;
-    border-radius: 5px;
+    border-radius: 10px;
     flex-direction: column;
     margin: 40px auto;
-    width: 69.2vw;
+    width: 30.4vw;
     height: 17rem;
     padding-left: 2rem;
     margin-top: -30px;
-    overflow: auto;
     overflow-x: hidden;
     overflow-wrap:break-word;
-    border: 1.7px solid #E3E3E3;
-    
+    border: 2px solid #E3E3E3;
+    background-color: whitesmoke; 
+    min-width: 300px; 
 }
 
+.content-container{
+    display: flex;
+    width: 31.4vw;
+    margin: -1rem 0 0 0vw;
+    min-width: 318px;
+}
+
+/* scroll bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199);
+    border-radius: 10px;
+  }
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3; 
+  }
+
+/* replies */
+
 #replies{
-    margin: 7px 0 0 52px;
-    
+    margin: 7px 0 0 52px; 
 }
 
 .replies-container{
-   
     border-radius: 5px;
-    height: 80px;
-    margin: -30px 0 40px 18.6vw;
+    height: 70px;
+    margin: -30px 0 40px 38vw;
     border:solid 2px #E3E3E3;
-    width: 67.2vw;
-    
-}
-
-#profilepic{
-   
-    height: 30px;
-    width: 30px;
-    border-radius: 100px;
-    margin: 10px 0 9px 0px;
-    background-image: url("girl2.jpg");
-    background-size: cover;
+    background-color: whitesmoke;
+    width:27.2vw;
+    min-width: 200px;
+    word-break: break-word;
+    font-size: 15px;
+    padding-bottom: 10px;
 }
 
 #profilepicreplies{
@@ -81,127 +182,55 @@ html, body {
 #repliesname{
     margin: -20px 0 0 50px;
     width: 200px;
+    font-size: 15px;
 }
 
-.content-container{
-    display: flex;
-    width: 100vw;
-    margin-top: -1rem;
-}
-
-#profilepicpadding{
-    padding-bottom: 0px;
-}
+/* up down arrows */
 
 .voteBox{
     display: flex;
     flex-direction: column;
     line-height: .01px;
-    margin: -73px 0 0 -28px;
-    font-size: 12px;
+    margin: -73px 0 0 -14px;
+    font-size: 14px;
+    font-weight: bold;
     align-items: center;
+    cursor: pointer; 
+   
 }
+/* icons bar */
+
 .icons{
     display: flex;
-    flex-direction: row;
     
-    justify-content:initial;
    
     height: 20px;
-    margin: -78px 0 0 12vw;
-    padding: 0 0 0 40px;  
+    margin: -73px 0 0 10%;
+  
     letter-spacing: 60px;
     font-size: 12px;
-    align-items: center;
     
+    cursor: pointer;  
     
 }
 
 .iconbox{
     display: flex;
+    margin: 0 0 0 36vw; 
     
-    
+    width: 200px;
 }
+
 #icontags{
     letter-spacing: 0;
     margin: 0 0 0 -50px;
-    font-size: 13px;
-    
-}
-
-#headerimg{
-    margin: 0 0 -40px 13vw;
-    height: 33px;
-        font-family: 'Manrope', sans-serif;
-        color:lightblue;
-}
-#flexbox1{
-    display: flex;
-    padding-left: 4px;
-}
-#hiddenboxsize{
-    border: 1.7px solid #E3E3E3;
-    border-radius: 5px;
-    margin: -40px auto 7px auto;
-   width: 72vw;
-    height: 100px;
-    word-wrap: break-word;
-    box-sizing: border-box; 
-    display: flex;
-    flex-direction: column;
-}
-
-textarea{
-    resize: none;
-    width: 100px;
-    
-}
-
-#postButton{
-    width: 60px;
-    padding: 3px;
-    background-color: #E3E3E3;
-    border-radius: 20px;
-    margin-left: 63vw;
-    margin-bottom: 10px;
-}
-
-.hidden{
-    display:flex;
-}
-.hiddenr{
-    display: none;
-}
-
-#content{
-    margin: 0 auto;
-}
-
-
-#feed-content{
-    padding-top: 9px;
-    padding-right: 5vw;
-    width: 63.5vw;
-    height: 140px;
-    overflow-y: hidden;
-    margin: 0 18px;
-    overflow: auto;   
-}
-
-h3{
-    width: 63vw;
-    
-    margin-left: 1vw; 
-    
-}
-
-#profilename{
-    margin: -36px 0 0 40px; 
-    font-size: 5p;
+    font-size: 13px; 
+    font-weight: bold; 
 }
 
 .up{
     color:green;
+    
 }
 
 .down{
@@ -215,3 +244,29 @@ h3{
 .comments{
     color:darkgreen;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hidden{
+    display:flex;
+}
+.hiddenr{
+    display: none;
+}
+
+
+
+
+

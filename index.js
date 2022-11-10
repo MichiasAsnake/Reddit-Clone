@@ -6,7 +6,6 @@ const inputbox = document.querySelector(".input-container")
 const postBtn = document.querySelector("#postButton")
 let hiddenboxsize = document.querySelector("#hiddenboxsize")
  
- 
 function uuidv4() {
   return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
@@ -15,7 +14,6 @@ function uuidv4() {
 
 postbox.addEventListener("click",function(){
     inputbox.classList.toggle("hidden") })
-
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.up){
@@ -41,7 +39,6 @@ document.addEventListener('click', function(e){
     
 }
 
-    
     function handleDislikeClick(postId){
     const targetPostId = data.filter(function(post){
         return post.uuid === postId
@@ -70,9 +67,6 @@ function handleLikeClick(postId){
     renderfeed() 
 }
 
-
-
-
 const data = [{
     
      Name: 'Bailey May',
@@ -89,22 +83,21 @@ const data = [{
         
         {
                 repliesname: `Harold Knock`,
-                profilepicreplies: `man2.jpg`,
+                profilepicreplies: `images/man2.jpg`,
                 repliescontent: `You have taught me so much!`,
             },{
                 repliesname: `Heather Seltzer`,
-                profilepicreplies: `woman3.jpg`,
+                profilepicreplies: `images/woman3.jpg`,
                 repliescontent: `Thanks Bailey, love this content.`,
             },
             {
                 repliesname: `Louise Doe`,
-                profilepicreplies: `woman4.jpg`,
+                profilepicreplies: `images/woman4.jpg`,
                 repliescontent: `My portfolio is looking better already!`,
             },
     ],
-    profilePic: 'girl2.jpg',
-    uuid: '115',
-    
+    profilePic: 'images/girl2.jpg',
+    uuid: '115',  
 },
 
 {
@@ -118,11 +111,11 @@ const data = [{
     replies:[
          {
                 repliesname: `Michael Scott`,
-                profilepicreplies: `man6.jpg`,
+                profilepicreplies: `images/man6.jpg`,
                 repliescontent: `Wow, ill definetly try this out!`,
             },
     ],
-    profilePic: 'images.jpg',
+    profilePic: 'images/images.jpg',
     uuid: '123981724'
 },
     {
@@ -134,15 +127,15 @@ const data = [{
     downvote:false,
     replies:[{
                 repliesname: `Todd Mack`,
-                profilepicreplies: `girl4.jpg`,
+                profilepicreplies: `images/girl4.jpg`,
                 repliescontent: `Yes! Sign me up! 😎🛩`,
             },{
                 repliesname: `Sara Pearosn`,
-                profilepicreplies: `girl1.jpg`,
+                profilepicreplies: `images/girl1.jpg`,
                 repliescontent: `I agree! I try and get to the gym twice a week.`,
             },],
     share:false,
-    profilePic: 'man1.jpg',
+    profilePic: 'images/man1.jpg',
     uuid: '124098102948'
 }, 
 ]
@@ -150,7 +143,6 @@ const data = [{
 postBtn.addEventListener("click", function(){
     BtnClick()
 })
-
 
 function render(){
     feedHtml = ''
@@ -178,8 +170,6 @@ function render(){
             post.replies.forEach(function(post){
             repliesHtml+=   
      `
-   
-     
      <div class="replies-container">
      <img src=${post.profilepicreplies} id="profilepicreplies">
      <p id="repliesname">${post.repliesname}</p>
@@ -187,11 +177,7 @@ function render(){
      <div id="replies">
      <text>${post.repliescontent}</text>
      </div>
-     </div>
-    
-    
-     `
-        })
+     </div>` })
         
         }
         
@@ -206,7 +192,7 @@ function render(){
                     <h3>${post.title}</h3> 
                 </div>
                 <div class="content-container">
-                    <div class="voteBox" id="flexbox1">
+                    <div class="voteBox">
                         <i class="fa-solid fa-angle-up ${upClass}" 
                         data-up=${post.uuid}></i>
                         <p id="posttext">${post.likeCount}</p>
@@ -244,21 +230,27 @@ function render(){
 
 function BtnClick(){
  if(post.value === ''){} else{
- 
+     
     data.unshift({
         Name: 'Micky Asnake',
         title: post.value,
         content: hiddenboxsize.value ,
         likeCount: [0] ,
-        profilePic: 'asdf.jpg',
+        profilePic: 'images/smile.jpg',
         uuid: uuidv4(),
+        upvote: false,
+        repliesname: '',
+        repliescontent:'',
+        downvote:false,
+        comments:false,
+        share:false,
+        replies:[]
         
-        
-    }),
-    
+    },
+    ) 
+ 
     post.value = ''
     hiddenboxsize.value = ''
-    
     renderfeed()}
 }
 
@@ -266,7 +258,5 @@ function renderfeed(){
   document.querySelector(".feed").innerHTML =  render()
   
 }
-
-
 
 renderfeed()
